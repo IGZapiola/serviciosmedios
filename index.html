@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformación Estratégica - Ignacio Gimenez Zapiola</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* 1. CONFIGURACIÓN BASE */
+•⁠  ⁠{
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+}
+
+body {
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.slide-container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif;
+  height: 720px;
+  width: 1280px;
+  overflow: hidden;
+  padding: 60px 80px;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+}
+
+/* ACENTOS CORPORATIVOS */
+.slide-container::before {
+  content: '';
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #004070 0%, #C5A059 100%);
+  z-index: 10;
+}
+
+/* TIPOGRAFÍA */
+h1, h2, h3 {
+  color: #004070;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+.slide-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p, li {
+  color: #334155;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* SLIDE 1: PORTADA IMPACTO */
+.full-bg-image {
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  justify-content: center;
+}
+
+.cover-overlay {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0) 100%);
+  height: 100%;
+  left: 0;
+  padding: 80px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.cover-overlay h1 {
+  font-size: 68px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.cover-overlay .subtitle {
+  color: #64748b;
+  font-size: 32px;
+  margin-bottom: 50px;
+  font-weight: 400;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 3px solid #C5A059;
+  padding-top: 30px;
+  max-width: 500px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.contact-item i {
+  color: #004070;
+  width: 25px;
+}
+
+/* SLIDE 2: PERFIL Y TILES */
+.quote-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: #f8fafc;
+  border-left: 8px solid #C5A059;
+  padding: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.profile-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  background-color: #e2e8f0;
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quote-text {
+  font-size: 22px;
+  font-style: italic;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.tiles-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
+.info-tile {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.info-tile .icon {
+  font-size: 32px;
+  color: #004070;
+  margin-bottom: 15px;
+}
+
+.info-tile h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.info-tile p {
+  font-size: 15px;
+}
+
+/* SLIDE 3: MÓDULOS EN COLUMNAS */
+.modules-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+.module-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.module-card h3 {
+  font-size: 17px;
+  min-height: 48px;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.goal-badge {
+  background-color: #eef2f7;
+  border-left: 4px solid #C5A059;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+}
+
+.goal-badge p {
+  font-size: 12px;
+  font-weight: 700;
+  color: #004070;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.module-card ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.module-card li {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #475569;
+}
+
+.reengineering-banner {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #004070 0%, #002d50 100%);
+  color: #fff;
+  padding: 40px 50px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  border: 2px solid #C5A059;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.reengineering-banner h3, .reengineering-banner p { color: #fff; }
+
+.reengineering-banner i {
+  font-size: 60px;
+  color: #C5A059;
+}
+
+.master-project-tag {
+  position: absolute;
+  top: -15px;
+  right: 50px;
+  background-color: #C5A059;
+  color: #004070;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: PORTADA -->
+<div class="slide-container full-bg-image" id="slide1" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');">
+    <div class="cover-overlay">
+        <h1>TRANSFORMACIÓN ESTRATÉGICA PARA MEDIOS EN LATAM</h1>
+        <p class="subtitle">Garantizar la sustentabilidad del negocio a largo plazo.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item"><i class="fa-solid fa-user"></i> Ignacio Gimenez Zapiola</div>
+            <div class="contact-item"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/ignaciogimenezzapiola</div>
+            <div class="contact-item"><i class="fa-solid fa-envelope"></i> Ignacio.g.zapiola@gmail.com</div>
+            <div class="contact-item"><i class="fa-solid fa-phone"></i> +54 9 11 6630 7034</div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 2: PERFIL Y COMPROMISO -->
+<div class="slide-container" id="slide2">
+    <h2 class="slide-title">Ejecución, Compromiso y Legado</h2>
+    <div class="quote-container">
+        <div class="profile-circle">
+            <!-- Foto de perfil de LinkedIn recuperada -->
+            <img 
+                src="https://media.licdn.com/dms/image/v2/D4E03AQEOsV5WC_DC4g/profile-displayphoto-scale_200_200/B4EZqcA6R9HoAY-/0/1763554078281?e=1778112000&v=beta&t=qbashUMmRG-8ig30EjcwF649wNACKOEvit-oJCzbsUc" 
+                alt="Ignacio Gimenez Zapiola"
+                onerror="this.src='https://ui-avatars.com/api/?name=Ignacio+Gimenez+Zapiola&background=004070&color=fff&size=200'"
+            >
+        </div>
+        <blockquote class="quote-text">
+            "A lo largo de estos años en la industria veo que los desafíos son similares para todos los medios de la región. Mi experiencia permite ofrecer un servicio sólido de transformación para varios actores dentro de LATAM."
+        </blockquote>
+    </div>
+
+    <div class="tiles-grid-3">
+        <div class="info-tile">
+            <div class="icon"><i class="fa-solid fa-award"></i></div>
+            <h3>Liderazgo Validado</h3>
+            <p>Director de marketing y comercial en <strong>Clarín</strong> de Argentina. Gerente general en <strong>El Comercio</strong> de Perú. Experiencia real ejecutando la transformación.</p>
+        </div>
+        <div class="info-tile">
+            <div class="icon"><i class="fa-solid fa-handshake-angle"></i></div>
+            <h3>Involucramiento Real</h3>
+            <p>Aseguro el éxito mediante mi participación directa y un equipo de especialistas de élite. No es consultoría de reporte; es acompañamiento activo.</p>
+        </div>
+        <div class="info-tile">
+            <div class="icon"><i class="fa-solid fa-users-gear"></i></div>
+            <h3>Desarrollo de Equipos</h3>
+            <p>Mi intervención deja capacidades instaladas. Formamos equipos preparados para los desafíos futuros, garantizando autonomía operativa.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 3: MÓDULOS EN COLUMNAS -->
+<div class="slide-container" id="slide3">
+    <h2 class="slide-title">Módulos de Trabajo y Versatilidad</h2>
+    <div class="modules-grid-4">
+        <!-- Suscripciones -->
+        <div class="module-card">
+            <h3>Suscripciones Digitales</h3>
+            <div class="goal-badge"><p>Objetivo: Acelerar crecimiento y monetización.</p></div>
+            <ul>
+                <li>Propuesta de valor diferencial</li>
+                <li>Plan de marketing estratégico</li>
+                <li>Integración de equipos de redacción y marketing</li>
+            </ul>
+        </div>
+
+        <!-- Tecnología -->
+        <div class="module-card">
+            <h3>Stack Tecnológico</h3>
+            <div class="goal-badge"><p>Objetivo: Lograr eficiencias económicas reales.</p></div>
+            <ul>
+                <li>Mapeo y costos de arquitectura</li>
+                <li>Diseño de infraestructura</li>
+                <li>Implementación de nuevas plataformas escalables</li>
+            </ul>
+        </div>
+
+        <!-- Data -->
+        <div class="module-card">
+            <h3>Data & Analytics</h3>
+            <div class="goal-badge"><p>Objetivo: Centralidad del dato y monetización.</p></div>
+            <ul>
+                <li>Construcción del área técnica</li>
+                <li>Validación de fuentes de datos</li>
+                <li>Estrategia de monetización de datos</li>
+            </ul>
+        </div>
+
+        <!-- Streaming -->
+        <div class="module-card">
+            <h3>Streaming</h3>
+            <div class="goal-badge"><p>Objetivo: Canales a costo controlado y audiencias.</p></div>
+            <ul>
+                <li>Arquitectura técnica necesaria</li>
+                <li>Planificación de programas</li>
+                <li>Soporte para edición y distribución de programas</li>
+            </ul>
+        </div>
+
+        <!-- Banner Reingeniería (Proyecto Madre) -->
+        <div class="reengineering-banner">
+            <div class="master-project-tag">Abordaje Integral</div>
+            <i class="fa-solid fa-arrows-spin"></i>
+            <div>
+                <h3 style="font-size: 28px; margin-bottom: 10px;">Reingeniería Integral de Negocio</h3>
+                <p style="font-size: 17px; line-height: 1.5; margin: 0;">Este es el <strong>proyecto madre</strong> estratégico que examina la estructura de costos al detalle y detecta oportunidades en la matriz de ingresos para lograr un modelo de negocio sustentable a largo plazo, integrando todos los pilares anteriores.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

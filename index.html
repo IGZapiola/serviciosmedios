@@ -1,403 +1,471 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transformación Estratégica - Ignacio Gimenez Zapiola</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-/* 1. CONFIGURACIÓN BASE */
-•⁠  ⁠{
-  box-sizing: border-box;
-  -webkit-print-color-adjust: exact;
-}
-
-body {
-  background-color: #0f172a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  min-height: 100vh;
-  padding: 20px 0;
-}
-
-.slide-container {
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Lato', sans-serif;
-  height: 720px;
-  width: 1280px;
-  overflow: hidden;
-  padding: 60px 80px;
-  position: relative;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-  margin-bottom: 40px;
-}
-
-/* ACENTOS CORPORATIVOS */
-.slide-container::before {
-  content: '';
-  height: 12px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  background: linear-gradient(90deg, #004070 0%, #C5A059 100%);
-  z-index: 10;
-}
-
-/* TIPOGRAFÍA */
-h1, h2, h3 {
-  color: #004070;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-}
-
-.slide-title {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-p, li {
-  color: #334155;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* SLIDE 1: PORTADA IMPACTO */
-.full-bg-image {
-  background-size: cover;
-  background-position: center;
-  padding: 0;
-  justify-content: center;
-}
-
-.cover-overlay {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0) 100%);
-  height: 100%;
-  left: 0;
-  padding: 80px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 1;
-}
-
-.cover-overlay h1 {
-  font-size: 68px;
-  line-height: 1.1;
-  margin-bottom: 20px;
-  max-width: 800px;
-}
-
-.cover-overlay .subtitle {
-  color: #64748b;
-  font-size: 32px;
-  margin-bottom: 50px;
-  font-weight: 400;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  border-top: 3px solid #C5A059;
-  padding-top: 30px;
-  max-width: 500px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.contact-item i {
-  color: #004070;
-  width: 25px;
-}
-
-/* SLIDE 2: PERFIL Y TILES */
-.quote-container {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  background-color: #f8fafc;
-  border-left: 8px solid #C5A059;
-  padding: 40px;
-  margin-bottom: 40px;
-  width: 100%;
-}
-
-.profile-circle {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 5px solid #fff;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-  background-color: #e2e8f0;
-}
-
-.profile-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.quote-text {
-  font-size: 22px;
-  font-style: italic;
-  color: #1e293b;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.tiles-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  width: 100%;
-}
-
-.info-tile {
-  background-color: #fff;
-  border: 1px solid #e2e8f0;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.info-tile .icon {
-  font-size: 32px;
-  color: #004070;
-  margin-bottom: 15px;
-}
-
-.info-tile h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.info-tile p {
-  font-size: 15px;
-}
-
-/* SLIDE 3: MÓDULOS EN COLUMNAS */
-.modules-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  width: 100%;
-}
-
-.module-card {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-}
-
-.module-card h3 {
-  font-size: 17px;
-  min-height: 48px;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-
-.goal-badge {
-  background-color: #eef2f7;
-  border-left: 4px solid #C5A059;
-  padding: 8px 12px;
-  margin-bottom: 15px;
-}
-
-.goal-badge p {
-  font-size: 12px;
-  font-weight: 700;
-  color: #004070;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.module-card ul {
-  padding-left: 18px;
-  margin: 0;
-}
-
-.module-card li {
-  font-size: 13px;
-  margin-bottom: 6px;
-  color: #475569;
-}
-
-.reengineering-banner {
-  grid-column: 1 / -1;
-  background: linear-gradient(135deg, #004070 0%, #002d50 100%);
-  color: #fff;
-  padding: 40px 50px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  border: 2px solid #C5A059;
-  position: relative;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.reengineering-banner h3, .reengineering-banner p { color: #fff; }
-
-.reengineering-banner i {
-  font-size: 60px;
-  color: #C5A059;
-}
-
-.master-project-tag {
-  position: absolute;
-  top: -15px;
-  right: 50px;
-  background-color: #C5A059;
-  color: #004070;
-  font-weight: 700;
-  font-size: 12px;
-  padding: 5px 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d7378; -webkit-text-stroke: #6d7378}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 16.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #a7c598; -webkit-text-stroke: #a7c598}
+    span.s1 {font-kerning: none; background-color: #171818}
+    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171818; -webkit-text-stroke: 0px #8cd3fe}
+    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171818; -webkit-text-stroke: 0px #6d6d6d}
+    span.s4 {font-kerning: none; color: #cacaca; background-color: #171818; -webkit-text-stroke: 0px #cacaca}
+    span.s5 {font-kerning: none; color: #c27e65; background-color: #171818; -webkit-text-stroke: 0px #c27e65}
+    span.s6 {font-kerning: none; color: #4689cc; background-color: #171818; -webkit-text-stroke: 0px #4689cc}
+    span.s7 {font-kerning: none; color: #d4d4d4; background-color: #171818; -webkit-text-stroke: 0px #d4d4d4}
+    span.s8 {font-kerning: none; color: #a7c598; background-color: #171818; -webkit-text-stroke: 0px #a7c598}
+    span.s9 {font-kerning: none; color: #71c083; background-color: #171818; -webkit-text-stroke: 0px #71c083}
+    span.s10 {font-kerning: none}
+  </style>
 </head>
 <body>
-
-<!-- SLIDE 1: PORTADA -->
-<div class="slide-container full-bg-image" id="slide1" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');">
-    <div class="cover-overlay">
-        <h1>TRANSFORMACIÓN ESTRATÉGICA PARA MEDIOS EN LATAM</h1>
-        <p class="subtitle">Garantizar la sustentabilidad del negocio a largo plazo.</p>
-        
-        <div class="contact-info">
-            <div class="contact-item"><i class="fa-solid fa-user"></i> Ignacio Gimenez Zapiola</div>
-            <div class="contact-item"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/ignaciogimenezzapiola</div>
-            <div class="contact-item"><i class="fa-solid fa-envelope"></i> Ignacio.g.zapiola@gmail.com</div>
-            <div class="contact-item"><i class="fa-solid fa-phone"></i> +54 9 11 6630 7034</div>
-        </div>
-    </div>
-</div>
-
-<!-- SLIDE 2: PERFIL Y COMPROMISO -->
-<div class="slide-container" id="slide2">
-    <h2 class="slide-title">Ejecución, Compromiso y Legado</h2>
-    <div class="quote-container">
-        <div class="profile-circle">
-            <!-- Foto de perfil de LinkedIn recuperada -->
-            <img 
-                src="https://media.licdn.com/dms/image/v2/D4E03AQEOsV5WC_DC4g/profile-displayphoto-scale_200_200/B4EZqcA6R9HoAY-/0/1763554078281?e=1778112000&v=beta&t=qbashUMmRG-8ig30EjcwF649wNACKOEvit-oJCzbsUc" 
-                alt="Ignacio Gimenez Zapiola"
-                onerror="this.src='https://ui-avatars.com/api/?name=Ignacio+Gimenez+Zapiola&background=004070&color=fff&size=200'"
-            >
-        </div>
-        <blockquote class="quote-text">
-            "A lo largo de estos años en la industria veo que los desafíos son similares para todos los medios de la región. Mi experiencia permite ofrecer un servicio sólido de transformación para varios actores dentro de LATAM."
-        </blockquote>
-    </div>
-
-    <div class="tiles-grid-3">
-        <div class="info-tile">
-            <div class="icon"><i class="fa-solid fa-award"></i></div>
-            <h3>Liderazgo Validado</h3>
-            <p>Director de marketing y comercial en <strong>Clarín</strong> de Argentina. Gerente general en <strong>El Comercio</strong> de Perú. Experiencia real ejecutando la transformación.</p>
-        </div>
-        <div class="info-tile">
-            <div class="icon"><i class="fa-solid fa-handshake-angle"></i></div>
-            <h3>Involucramiento Real</h3>
-            <p>Aseguro el éxito mediante mi participación directa y un equipo de especialistas de élite. No es consultoría de reporte; es acompañamiento activo.</p>
-        </div>
-        <div class="info-tile">
-            <div class="icon"><i class="fa-solid fa-users-gear"></i></div>
-            <h3>Desarrollo de Equipos</h3>
-            <p>Mi intervención deja capacidades instaladas. Formamos equipos preparados para los desafíos futuros, garantizando autonomía operativa.</p>
-        </div>
-    </div>
-</div>
-
-<!-- SLIDE 3: MÓDULOS EN COLUMNAS -->
-<div class="slide-container" id="slide3">
-    <h2 class="slide-title">Módulos de Trabajo y Versatilidad</h2>
-    <div class="modules-grid-4">
-        <!-- Suscripciones -->
-        <div class="module-card">
-            <h3>Suscripciones Digitales</h3>
-            <div class="goal-badge"><p>Objetivo: Acelerar crecimiento y monetización.</p></div>
-            <ul>
-                <li>Propuesta de valor diferencial</li>
-                <li>Plan de marketing estratégico</li>
-                <li>Integración de equipos de redacción y marketing</li>
-            </ul>
-        </div>
-
-        <!-- Tecnología -->
-        <div class="module-card">
-            <h3>Stack Tecnológico</h3>
-            <div class="goal-badge"><p>Objetivo: Lograr eficiencias económicas reales.</p></div>
-            <ul>
-                <li>Mapeo y costos de arquitectura</li>
-                <li>Diseño de infraestructura</li>
-                <li>Implementación de nuevas plataformas escalables</li>
-            </ul>
-        </div>
-
-        <!-- Data -->
-        <div class="module-card">
-            <h3>Data & Analytics</h3>
-            <div class="goal-badge"><p>Objetivo: Centralidad del dato y monetización.</p></div>
-            <ul>
-                <li>Construcción del área técnica</li>
-                <li>Validación de fuentes de datos</li>
-                <li>Estrategia de monetización de datos</li>
-            </ul>
-        </div>
-
-        <!-- Streaming -->
-        <div class="module-card">
-            <h3>Streaming</h3>
-            <div class="goal-badge"><p>Objetivo: Canales a costo controlado y audiencias.</p></div>
-            <ul>
-                <li>Arquitectura técnica necesaria</li>
-                <li>Planificación de programas</li>
-                <li>Soporte para edición y distribución de programas</li>
-            </ul>
-        </div>
-
-        <!-- Banner Reingeniería (Proyecto Madre) -->
-        <div class="reengineering-banner">
-            <div class="master-project-tag">Abordaje Integral</div>
-            <i class="fa-solid fa-arrows-spin"></i>
-            <div>
-                <h3 style="font-size: 28px; margin-bottom: 10px;">Reingeniería Integral de Negocio</h3>
-                <p style="font-size: 17px; line-height: 1.5; margin: 0;">Este es el <strong>proyecto madre</strong> estratégico que examina la estructura de costos al detalle y detecta oportunidades en la matriz de ingresos para lograr un modelo de negocio sustentable a largo plazo, integrando todos los pilares anteriores.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
+<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"es"</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">Transformación Estratégica para Medios - Ignacio Gimenez Zapiola</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.gstatic.com"</span><span class="s4"> </span><span class="s2">crossorigin</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;family=Lato:wght@300;400;700&amp;display=swap"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* CONFIGURACIÓN RESPONSIVA Y ESTILO EJECUTIVO */</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">*</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">box-sizing:</span><span class="s1"> </span><span class="s5">border-box</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s1"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #0f172a</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">20px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s1"> </span><span class="s9">'Lato'</span><span class="s7">,</span><span class="s1"> </span><span class="s5">sans-serif</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #1e293b</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">-webkit-print-color-adjust:</span><span class="s4"> </span><span class="s5">exact</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">print-color-adjust:</span><span class="s4"> </span><span class="s5">exact</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.slide-container</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-width:</span><span class="s1"> </span><span class="s8">1280px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">min-height:</span><span class="s1"> </span><span class="s8">720px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #ffffff</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">relative</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">overflow:</span><span class="s1"> </span><span class="s5">hidden</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span></p>
+<p class="p7"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s4"> </span><span class="s5">clamp(</span><span class="s1">30px</span><span class="s7">,</span><span class="s4"> </span><span class="s1">5%</span><span class="s7">,</span><span class="s4"> </span><span class="s1">60px</span><span class="s5">)</span><span class="s4"> </span><span class="s5">clamp(</span><span class="s1">30px</span><span class="s7">,</span><span class="s4"> </span><span class="s1">6%</span><span class="s7">,</span><span class="s4"> </span><span class="s1">80px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s8">20px</span><span class="s1"> </span><span class="s8">25px</span><span class="s1"> </span><span class="s8">-5px</span><span class="s1"> </span><span class="s5">rgb(</span><span class="s8">0</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s7">/</span><span class="s1"> </span><span class="s8">0.5</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">40px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* ACENTOS VISUALES */</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.slide-container::before</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">content:</span><span class="s1"> </span><span class="s9">""</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">absolute</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">top:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">left:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s8">12px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s5">linear-gradient(</span><span class="s8">90deg</span><span class="s7">,</span><span class="s1"> #005088 </span><span class="s8">0%</span><span class="s7">,</span><span class="s1"> #C5A059 </span><span class="s8">100%</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">10</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.bg-element</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">absolute</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">60%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s4"> </span><span class="s1">radial-gradient(circle</span><span class="s7">,</span><span class="s4"> </span><span class="s1">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">80</span><span class="s7">,</span><span class="s4"> </span><span class="s8">136</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0.05</span><span class="s1">)</span><span class="s4"> </span><span class="s8">0%</span><span class="s7">,</span><span class="s4"> </span><span class="s1">rgba(</span><span class="s8">255</span><span class="s7">,</span><span class="s4"> </span><span class="s8">255</span><span class="s7">,</span><span class="s4"> </span><span class="s8">255</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0</span><span class="s1">)</span><span class="s4"> </span><span class="s8">70%</span><span class="s1">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">top:</span><span class="s1"> </span><span class="s8">-10%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">right:</span><span class="s1"> </span><span class="s8">-10%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* TIPOGRAFÍA */</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">h1</span><span class="s7">,</span><span class="s1"> </span><span class="s6">h2</span><span class="s7">,</span><span class="s1"> </span><span class="s6">h3</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">font-family:</span><span class="s1"> </span><span class="s9">'Merriweather'</span><span class="s7">,</span><span class="s1"> </span><span class="s5">serif</span><span class="s7">;</span><span class="s1"> </span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span><span class="s1"> </span><span class="s2">color:</span><span class="s1"> #005088</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.slide-title</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">24px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">4vw</span><span class="s7">,</span><span class="s1"> </span><span class="s8">42px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight:</span><span class="s1"> </span><span class="s8">700</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">8px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">2</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">text-transform:</span><span class="s4"> </span><span class="s5">uppercase</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.slide-subtitle</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">16px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">2vw</span><span class="s7">,</span><span class="s1"> </span><span class="s8">20px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #64748b</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight:</span><span class="s1"> </span><span class="s8">300</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">20px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">4%</span><span class="s7">,</span><span class="s1"> </span><span class="s8">30px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-bottom:</span><span class="s1"> </span><span class="s8">1px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #e2e8f0</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">padding-bottom:</span><span class="s4"> </span><span class="s8">15px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">2</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-style:</span><span class="s1"> </span><span class="s5">italic</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">p</span><span class="s7">,</span><span class="s4"> </span><span class="s6">li</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s5">clamp(</span><span class="s8">14px</span><span class="s7">,</span><span class="s4"> </span><span class="s8">1.5vw</span><span class="s7">,</span><span class="s4"> </span><span class="s8">17px</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">line-height:</span><span class="s4"> </span><span class="s8">1.6</span><span class="s7">;</span><span class="s4"> </span><span class="s1">color:</span><span class="s4"> #334155</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* PORTADA */</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.title-layout</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">justify-content:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">2</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-width:</span><span class="s1"> </span><span class="s8">900px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">flex-grow:</span><span class="s1"> </span><span class="s8">1</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.title-layout</span><span class="s4"> </span><span class="s1">h1</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">36px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">6vw</span><span class="s7">,</span><span class="s1"> </span><span class="s8">68px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">line-height:</span><span class="s1"> </span><span class="s8">1.1</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">25px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.title-layout</span><span class="s4"> </span><span class="s1">.main-subtitle</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">18px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">3vw</span><span class="s7">,</span><span class="s1"> </span><span class="s8">30px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #64748b</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight:</span><span class="s1"> </span><span class="s8">300</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.accent-line</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">60px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">10%</span><span class="s7">,</span><span class="s1"> </span><span class="s8">120px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s8">5px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #C5A059</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">30px</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* BLOQUE DE CONTACTO (SÓLO SLIDE 1) */</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.contact-block</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-top:</span><span class="s1"> </span><span class="s8">30px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap:</span><span class="s1"> </span><span class="s8">10px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">5</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s8">255</span><span class="s7">,</span><span class="s1"> </span><span class="s8">255</span><span class="s7">,</span><span class="s1"> </span><span class="s8">255</span><span class="s7">,</span><span class="s1"> </span><span class="s8">0.9</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">20px</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s8">8px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s5">fit-content</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.contact-item</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap:</span><span class="s1"> </span><span class="s8">15px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight:</span><span class="s1"> </span><span class="s8">700</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">14px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">1.5vw</span><span class="s7">,</span><span class="s1"> </span><span class="s8">18px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #1e293b</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.contact-item</span><span class="s4"> </span><span class="s1">i</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #005088</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">1.2em</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">25px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* QUOTE CON FOTO (SLIDE 2) */</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.quote-container</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">20px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">4%</span><span class="s7">,</span><span class="s1"> </span><span class="s8">40px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #f8fafc</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-left:</span><span class="s1"> </span><span class="s8">8px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #C5A059</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">20px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">4%</span><span class="s7">,</span><span class="s1"> </span><span class="s8">40px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">30px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">2</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">relative</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.profile-photo</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">100px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">15vw</span><span class="s7">,</span><span class="s1"> </span><span class="s8">160px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">100px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">15vw</span><span class="s7">,</span><span class="s1"> </span><span class="s8">160px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s8">50%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">object-fit:</span><span class="s1"> </span><span class="s5">cover</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border:</span><span class="s1"> </span><span class="s8">5px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #ffffff</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s8">10px</span><span class="s1"> </span><span class="s8">20px</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s8">0</span><span class="s7">,</span><span class="s8">0</span><span class="s7">,</span><span class="s8">0.1</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">flex-shrink:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.quote-text</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">16px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">1.8vw</span><span class="s7">,</span><span class="s1"> </span><span class="s8">20px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-style:</span><span class="s1"> </span><span class="s5">italic</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #1e293b</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">line-height:</span><span class="s1"> </span><span class="s8">1.6</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* GRID DE TILES (SLIDE 2) */</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.experience-grid</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">grid</span><span class="s7">;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">grid-template-columns:</span><span class="s4"> </span><span class="s1">repeat(auto-fit</span><span class="s7">,</span><span class="s4"> </span><span class="s1">minmax(</span><span class="s8">280px</span><span class="s7">,</span><span class="s4"> </span><span class="s8">1fr</span><span class="s1">))</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap:</span><span class="s1"> </span><span class="s8">20px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">2</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* GRID DE MÓDULOS (SLIDE 3) */</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.grid-4-cols</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">grid</span><span class="s7">;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">grid-template-columns:</span><span class="s4"> </span><span class="s1">repeat(auto-fit</span><span class="s7">,</span><span class="s4"> </span><span class="s1">minmax(</span><span class="s8">240px</span><span class="s7">,</span><span class="s4"> </span><span class="s8">1fr</span><span class="s1">))</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap:</span><span class="s1"> </span><span class="s8">15px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">2</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.tile</span><span class="s1"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #f8fafc</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border:</span><span class="s1"> </span><span class="s8">1px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #e2e8f0</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">20px</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s8">4px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.tile</span><span class="s4"> </span><span class="s6">.icon</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s5">clamp(</span><span class="s8">24px</span><span class="s7">,</span><span class="s4"> </span><span class="s8">3vw</span><span class="s7">,</span><span class="s4"> </span><span class="s8">32px</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">color:</span><span class="s4"> #005088</span><span class="s7">;</span><span class="s4"> </span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">12px</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.tile</span><span class="s4"> </span><span class="s6">h3</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s5">clamp(</span><span class="s8">15px</span><span class="s7">,</span><span class="s4"> </span><span class="s8">1.4vw</span><span class="s7">,</span><span class="s4"> </span><span class="s8">18px</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">10px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">min-height:</span><span class="s4"> </span><span class="s8">44px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">display:</span><span class="s4"> </span><span class="s5">flex</span><span class="s7">;</span><span class="s4"> </span><span class="s1">align-items:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.goal-box</span><span class="s1"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #eef2f7</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">8px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-left:</span><span class="s1"> </span><span class="s8">4px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #C5A059</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">12px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.goal-text</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-weight:</span><span class="s4"> </span><span class="s8">700</span><span class="s7">;</span><span class="s4"> </span><span class="s1">color:</span><span class="s4"> #005088</span><span class="s7">;</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s8">12px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">line-height:</span><span class="s4"> </span><span class="s8">1.3</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.tile</span><span class="s4"> </span><span class="s6">ul</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">padding-left:</span><span class="s4"> </span><span class="s8">18px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">margin:</span><span class="s4"> </span><span class="s8">0</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.tile</span><span class="s4"> </span><span class="s6">li</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s8">13px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">6px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">color:</span><span class="s4"> #475569</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* REINGENIERÍA INTEGRAL (BARRA DESTACADA) */</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.reengineering-focus</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">grid-column:</span><span class="s1"> </span><span class="s8">1</span><span class="s1"> </span><span class="s7">/</span><span class="s1"> </span><span class="s8">-1</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #005088</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #ffffff</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">25px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">5%</span><span class="s7">,</span><span class="s1"> </span><span class="s8">40px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-top:</span><span class="s1"> </span><span class="s8">15px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s8">15px</span><span class="s1"> </span><span class="s8">30px</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s1"> </span><span class="s8">80</span><span class="s7">,</span><span class="s1"> </span><span class="s8">136</span><span class="s7">,</span><span class="s1"> </span><span class="s8">0.3</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">flex-wrap:</span><span class="s1"> </span><span class="s5">wrap</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap:</span><span class="s1"> </span><span class="s5">clamp(</span><span class="s8">20px</span><span class="s7">,</span><span class="s1"> </span><span class="s8">5%</span><span class="s7">,</span><span class="s1"> </span><span class="s8">40px</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.reengineering-focus</span><span class="s4"> </span><span class="s1">.icon-large</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s2">font-size:</span><span class="s4"> </span><span class="s5">clamp(</span><span class="s8">40px</span><span class="s7">,</span><span class="s4"> </span><span class="s8">6vw</span><span class="s7">,</span><span class="s4"> </span><span class="s8">60px</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s2">color:</span><span class="s4"> #ffffff</span><span class="s7">;</span><span class="s4"> </span><span class="s2">opacity:</span><span class="s4"> </span><span class="s8">0.9</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.reengineering-focus</span><span class="s4"> </span><span class="s1">.text-content</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s2">flex:</span><span class="s4"> </span><span class="s8">1</span><span class="s7">;</span><span class="s4"> </span><span class="s2">min-width:</span><span class="s4"> </span><span class="s8">300px</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.reengineering-focus</span><span class="s4"> </span><span class="s1">h3</span><span class="s7">,</span><span class="s4"> </span><span class="s1">.reengineering-focus</span><span class="s4"> </span><span class="s1">p</span><span class="s7">,</span><span class="s4"> </span><span class="s1">.reengineering-focus</span><span class="s4"> </span><span class="s1">.goal-text</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s2">color:</span><span class="s4"> #ffffff</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.reengineering-focus</span><span class="s4"> </span><span class="s6">h3</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s5">clamp(</span><span class="s8">20px</span><span class="s7">,</span><span class="s4"> </span><span class="s8">2.5vw</span><span class="s7">,</span><span class="s4"> </span><span class="s8">28px</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">10px</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.reengineering-focus</span><span class="s4"> </span><span class="s1">.goal-box</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s2">background-color:</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s8">255</span><span class="s7">,</span><span class="s8">255</span><span class="s7">,</span><span class="s8">255</span><span class="s7">,</span><span class="s8">0.15</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s2">border-left:</span><span class="s4"> </span><span class="s8">4px</span><span class="s4"> </span><span class="s5">solid</span><span class="s4"> #C5A059</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.reengineering-focus</span><span class="s4"> </span><span class="s6">p</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s5">clamp(</span><span class="s8">14px</span><span class="s7">,</span><span class="s4"> </span><span class="s8">1.4vw</span><span class="s7">,</span><span class="s4"> </span><span class="s8">16px</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">line-height:</span><span class="s4"> </span><span class="s8">1.6</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.badge</span><span class="s1"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #C5A059</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #ffffff</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">11px</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">4px</span><span class="s1"> </span><span class="s8">12px</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s8">20px</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">10px</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">text-transform:</span><span class="s4"> </span><span class="s5">uppercase</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight:</span><span class="s1"> </span><span class="s8">700</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">inline-block</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* FONDOS */</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.full-bg</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">background-size:</span><span class="s4"> </span><span class="s5">cover</span><span class="s7">;</span><span class="s4"> </span><span class="s1">background-position:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.overlay</span><span class="s1"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">absolute</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">top:</span><span class="s4"> </span><span class="s8">0</span><span class="s7">;</span><span class="s4"> </span><span class="s1">left:</span><span class="s4"> </span><span class="s8">0</span><span class="s7">;</span><span class="s4"> </span><span class="s1">width:</span><span class="s4"> </span><span class="s8">100%</span><span class="s7">;</span><span class="s4"> </span><span class="s1">height:</span><span class="s4"> </span><span class="s8">100%</span><span class="s7">;</span></p>
+<p class="p7"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s4"> </span><span class="s5">linear-gradient(</span><span class="s1">90deg</span><span class="s7">,</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s1">255</span><span class="s7">,</span><span class="s1">255</span><span class="s7">,</span><span class="s1">255</span><span class="s7">,</span><span class="s1">1</span><span class="s5">)</span><span class="s4"> </span><span class="s1">40%</span><span class="s7">,</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s1">255</span><span class="s7">,</span><span class="s1">255</span><span class="s7">,</span><span class="s1">255</span><span class="s7">,</span><span class="s1">0.8</span><span class="s5">)</span><span class="s4"> </span><span class="s1">60%</span><span class="s7">,</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s1">255</span><span class="s7">,</span><span class="s1">255</span><span class="s7">,</span><span class="s1">255</span><span class="s7">,</span><span class="s1">0</span><span class="s5">)</span><span class="s4"> </span><span class="s1">100%</span><span class="s5">)</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">1</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* ESTILOS ESPECÍFICOS PARA CUANDO SE IMPRIME/EXPORTA A PDF */</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>@</span><span class="s6">media</span><span class="s1"> </span><span class="s6">print</span><span class="s1"> </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>body {<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">.slide-container</span><span class="s4"> </span><span class="s7">{</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">page-break-after:</span><span class="s1"> </span><span class="s5">always</span><span class="s7">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s8">100vh</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">border:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">.slide-container::before</span><span class="s4"> </span><span class="s7">{</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">-webkit-print-color-adjust:</span><span class="s4"> </span><span class="s5">exact</span><span class="s7">;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">print-color-adjust:</span><span class="s4"> </span><span class="s5">exact</span><span class="s7">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>@</span><span class="s6">media</span><span class="s1"> (</span><span class="s6">max-width:</span><span class="s1"> 1024</span><span class="s6">px</span><span class="s1">) </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>.grid-4-cols { </span><span class="s2">grid-template-columns:</span><span class="s1"> </span><span class="s5">repeat(</span><span class="s8">2</span><span class="s7">,</span><span class="s1"> </span><span class="s8">1fr</span><span class="s5">)</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>@</span><span class="s6">media</span><span class="s1"> (</span><span class="s6">max-width:</span><span class="s1"> 768</span><span class="s6">px</span><span class="s1">) </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>body { </span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">10px</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">.slide-container</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">padding:</span><span class="s4"> </span><span class="s8">30px</span><span class="s4"> </span><span class="s8">20px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">height:</span><span class="s4"> </span><span class="s5">auto</span><span class="s7">;</span><span class="s4"> </span><span class="s1">min-height:</span><span class="s4"> </span><span class="s5">auto</span><span class="s7">;</span><span class="s4"> </span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">20px</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">.quote-container</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span><span class="s4"> </span><span class="s1">text-align:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span><span class="s4"> </span><span class="s1">gap:</span><span class="s4"> </span><span class="s8">15px</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">.reengineering-focus</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span><span class="s4"> </span><span class="s1">text-align:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">.grid-4-cols</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">grid-template-columns:</span><span class="s4"> </span><span class="s8">1fr</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">.contact-block</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">width:</span><span class="s4"> </span><span class="s8">100%</span><span class="s7">;</span><span class="s4"> </span><span class="s1">padding:</span><span class="s4"> </span><span class="s8">15px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">align-items:</span><span class="s4"> </span><span class="s5">flex-start</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">.contact-item</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s8">14px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">word-break:</span><span class="s4"> </span><span class="s5">break-word</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">.title-layout</span><span class="s4"> </span><span class="s6">h1</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s8">32px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">text-align:</span><span class="s4"> </span><span class="s5">left</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">.main-subtitle</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">18px</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>@</span><span class="s6">media</span><span class="s1"> (</span><span class="s6">max-width:</span><span class="s1"> 480</span><span class="s6">px</span><span class="s1">) </span><span class="s7">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>.slide-title { </span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">24px</span><span class="s7">;</span><span class="s1"> </span><span class="s2">text-align:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">.slide-subtitle</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-size:</span><span class="s4"> </span><span class="s8">16px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">text-align:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">.profile-photo</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">width:</span><span class="s1"> </span><span class="s8">120px</span><span class="s7">;</span><span class="s1"> </span><span class="s2">height:</span><span class="s1"> </span><span class="s8">120px</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">.contact-item</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">13px</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;</span><span class="s1">body</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1">&lt;!-- SLIDE 1: PORTADA --&gt;</span></p>
+<p class="p3"><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"slide-container full-bg"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"slide1"</span><span class="s4"> </span><span class="s2">style</span><span class="s3">=</span><span class="s1">"background-image: url('https://images.unsplash.com/photo-1451187534959-5e56677c3be0?q=80&amp;w=2070&amp;auto=format&amp;fit=crop');"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"overlay"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"title-layout"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s3">&gt;</span><span class="s1">Transformación Estratégica para Medios en LATAM</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accent-line"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"main-subtitle"</span><span class="s3">&gt;</span><span class="s1">Garantizar la sustentabilidad del negocio a largo plazo.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"contact-block"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"contact-item"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-user"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">Ignacio Gimenez Zapiola</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"contact-item"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-brands fa-linkedin"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">linkedin.com/in/ignaciogimenezzapiola</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"contact-item"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-envelope"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">Ignacio.g.zapiola@gmail.com</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"contact-item"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-phone"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">+5491166307034</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1">&lt;!-- SLIDE 2: EJECUCIÓN --&gt;</span></p>
+<p class="p3"><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"slide-container"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"slide2"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-element"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"slide-title"</span><span class="s3">&gt;</span><span class="s1">Ejecución, Compromiso y Legado</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"slide-subtitle"</span><span class="s3">&gt;</span><span class="s1">Acompañamiento ejecutivo enfocado en la autonomía operativa.</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">style</span><span class="s3">=</span><span class="s1">"z-index: 2; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"quote-container"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">img</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://media.licdn.com/dms/image/v2/D4E03AQEOsV5WC_DC4g/profile-displayphoto-scale_200_200/B4EZqcA6R9HoAY-/0/1763554078281?e=1778112000&amp;v=beta&amp;t=qbashUMmRG-8ig30EjcwF649wNACKOEvit-oJCzbsUc"</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">                 </span></span><span class="s2">alt</span><span class="s3">=</span><span class="s1">"Ignacio Gimenez Zapiola"</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                 </span></span><span class="s2">class</span><span class="s3">=</span><span class="s5">"profile-photo"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">blockquote</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"quote-text"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>"A lo largo de estos años en la industria veo que los desafíos son similares para todos los medios de la región. Esas similitudes me han hecho concluir que con mi experiencia y equipo puedo ofrecer un servicio sólido de transformación para varios actores dentro de LATAM."</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">blockquote</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"experience-grid"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"tile"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-award"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s3">&gt;</span><span class="s1">Liderazgo Validado</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">He desempeñado la función de director de marketing y director comercial en </span><span class="s3">&lt;</span><span class="s6">strong</span><span class="s3">&gt;</span><span class="s1">Clarín</span><span class="s3">&lt;/</span><span class="s6">strong</span><span class="s3">&gt;</span><span class="s1"> de Argentina. También lideré </span><span class="s3">&lt;</span><span class="s6">strong</span><span class="s3">&gt;</span><span class="s1">El Comercio</span><span class="s3">&lt;/</span><span class="s6">strong</span><span class="s3">&gt;</span><span class="s1"> de Perú como gerente general. Tengo experiencia real ejecutando la transformación.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"tile"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-handshake-angle"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s3">&gt;</span><span class="s1">Involucramiento Real</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">Aseguro el éxito mediante mi participación directa y un equipo de especialistas de élite. Transformación activa en la ejecución.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"tile"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-users-gear"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s3">&gt;</span><span class="s1">Desarrollo de Equipos</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">Mi intervención deja capacidades instaladas. Formamos equipos preparados para los desafíos futuros, garantizando autonomía operativa.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1">&lt;!-- SLIDE 3: MÓDULOS --&gt;</span></p>
+<p class="p3"><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"slide-container"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"slide3"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"slide-title"</span><span class="s3">&gt;</span><span class="s1">Módulos de Trabajo y Versatilidad</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"slide-subtitle"</span><span class="s3">&gt;</span><span class="s1">Intervenciones específicas o transformación estructural profunda.</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid-4-cols"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"tile"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-users"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s3">&gt;</span><span class="s1">Suscripciones Digitales</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-box"</span><span class="s3">&gt;&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-text"</span><span class="s3">&gt;</span><span class="s1">Objetivo: Acelerar el crecimiento y su monetización.</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Propuesta de valor</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Plan de marketing</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Estrategia con la redacción</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"tile"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-microchip"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s3">&gt;</span><span class="s1">Stack Tecnológico</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-box"</span><span class="s3">&gt;&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-text"</span><span class="s3">&gt;</span><span class="s1">Objetivo: Lograr eficiencias económicas.</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Mapeo y costos</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Diseño de arquitectura</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Implementación de nuevas plataformas escalables</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"tile"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-chart-line"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s3">&gt;</span><span class="s1">Data &amp; Analytics</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-box"</span><span class="s3">&gt;&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-text"</span><span class="s3">&gt;</span><span class="s1">Objetivo: Lograr la centralidad del dato.</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Construcción del área</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Validación de fuentes de datos</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Estrategia de monetización de datos</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"tile"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-clapperboard"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s3">&gt;</span><span class="s1">Streaming</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-box"</span><span class="s3">&gt;&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-text"</span><span class="s3">&gt;</span><span class="s1">Objetivo: Canales a costo controlado.</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Arquitectura técnica</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Planificación programas</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">Soporte para la edición y distribución de programas</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"reengineering-focus"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"icon-large"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-arrows-spin"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-content"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"badge"</span><span class="s3">&gt;</span><span class="s1">Estrategia de Negocio</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s3">&gt;</span><span class="s1">Reingeniería Integral</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-box"</span><span class="s3">&gt;&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"goal-text"</span><span class="s3">&gt;</span><span class="s1">Objetivo: Transformación profunda del modelo.</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>Examen estructural de costos y detección de nuevas oportunidades de ingresos para lograr un modelo sustentable a largo plazo.</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">div</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s10"></span><br></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
 </body>
 </html>
